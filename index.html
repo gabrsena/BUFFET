@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atelie Kids | Buffet Infantil Wanel Ville Sorocaba</title>
-    <meta name="description" content="O melhor salão de festa infantil no Wanel Ville, Sorocaba. Diversão, segurança e buffet de alta qualidade.">
+    <meta name="description" content="A festa mais mágica do Wanel Ville. Buffet infantil completo com recreação neon, segurança e muita diversão.">
     
-    <!-- Favicon Corrigido -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎈</text></svg>">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Sora:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,25 +22,10 @@
                         'brand-yellow': '#facc15',
                         'brand-pink': '#db2777',
                         'brand-turquoise': '#06b6d4',
-                        'brand-orange': '#f97316',
                     },
                     fontFamily: {
                         sora: ['Sora', 'sans-serif'],
                         fredoka: ['Fredoka', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out infinite 2s',
-                        'bounce-soft': 'bounce-soft 2s ease-in-out infinite',
-                        'wiggle': 'wiggle 1s ease-in-out infinite',
-                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-                        'pulse-glow-green': 'pulse-glow-green 3s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s linear infinite',
-                        'blob-move': 'blob-move 25s infinite alternate',
-                        'neon-purple': 'neon-purple 1.5s ease-in-out infinite alternate',
-                        'neon-pink': 'neon-pink 1.5s ease-in-out infinite alternate',
-                        'neon-turquoise': 'neon-turquoise 1.5s ease-in-out infinite alternate',
-                        'neon-yellow': 'neon-yellow 1.5s ease-in-out infinite alternate',
                     }
                 }
             }
@@ -51,65 +33,147 @@
     </script>
     
     <style>
-        /* FORÇA O CONTEÚDO A APARECER IMEDIATAMENTE */
         #root {
+            display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
-            display: block !important;
+            min-height: 100vh;
+            background-color: #0f172a;
         }
 
         body { 
+            margin: 0; padding: 0;
             font-family: 'Sora', sans-serif; 
             background-color: #0f172a; 
-            color: white !important; 
-            overflow-x: hidden; 
-            scroll-behavior: smooth; 
-            margin: 0;
-            padding: 0;
+            color: white; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        
+
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-20px) rotate(5deg); } }
-        @keyframes bounce-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.5); transform: scale(1); } 50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.8); transform: scale(1.02); } }
-        @keyframes pulse-glow-green { 0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); } 50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.7); } }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-        @keyframes blob-move { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } 100% { transform: translate(0,0) scale(1); } }
+        @keyframes blob { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-50px) scale(1.1); } 66% { transform: translate(-20px,20px) scale(0.9); } 100% { transform: translate(0,0) scale(1); } }
         
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+        .animate-blob { animation: blob 20s infinite alternate; }
+
         .bubble-base {
-            display: inline-block; padding: 0.5rem 2.5rem; border-radius: 9999px; text-transform: uppercase; font-weight: 900;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; line-height: 0.9;
-            font-family: 'Fredoka', sans-serif !important;
+            display: inline-block; padding: 0.6rem 2.5rem; border-radius: 9999px; text-transform: uppercase; font-weight: 900;
+            font-family: 'Fredoka', sans-serif; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            line-height: 1;
         }
-        .bubble-purple { background: #9333ea; color: white; box-shadow: 0 10px 0 #7e22ce; transform: rotate(-2deg); }
-        .bubble-yellow { background: #facc15; color: #713f12; box-shadow: 0 10px 0 #ca8a04; transform: rotate(1.5deg); }
-        .bubble-base:hover { transform: scale(1.1) rotate(0deg); }
+        .bubble-purple { background: #9333ea; color: white; box-shadow: 0 8px 0 #7e22ce; transform: rotate(-2deg); }
+        .bubble-yellow { background: #facc15; color: #713f12; box-shadow: 0 8px 0 #ca8a04; transform: rotate(1.5deg); }
+        .bubble-base:hover { transform: scale(1.05) rotate(0deg); }
         
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .neon-text-yellow { text-shadow: 0 0 10px #facc15; }
-        .neon-text-pink { text-shadow: 0 0 10px #db2777; }
-        .neon-text-purple { text-shadow: 0 0 10px #9333ea; }
-        .shimmer-btn { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); background-size: 200% 100%; }
-        
-        .clip-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
     </style>
-    <script>
-        window.process = { env: { NODE_ENV: 'production' } };
-    </script>
+
     <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
-    "react/": "https://esm.sh/react@19.0.0/",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react,react-dom",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
-<body class="antialiased">
+<body>
     <div id="root"></div>
+
+    <script type="module">
+        import React from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { MessageCircle, Sparkles, Zap, Star, MapPin, Instagram } from 'lucide-react';
+
+        const App = () => {
+            return (
+                <div className="relative min-h-screen overflow-hidden">
+                    {/* Background Animado */}
+                    <div className="fixed inset-0 -z-10 bg-[#0f172a]">
+                        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-purple/20 rounded-full blur-[100px] animate-blob" />
+                        <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-yellow/10 rounded-full blur-[100px] animate-blob" style={{ animationDelay: '5s' }} />
+                    </div>
+
+                    {/* Navbar */}
+                    <nav className="fixed w-full z-50 p-6">
+                        <div className="max-w-7xl mx-auto flex justify-between items-center glass-card px-6 py-4 rounded-full">
+                            <div className="text-2xl font-black font-fredoka text-white tracking-tighter">
+                                Atelie<span className="text-brand-yellow">Kids</span>🎈
+                            </div>
+                            <a href="https://wa.me/5515999999999" className="bg-brand-turquoise text-white px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition">
+                                Orçamento
+                            </a>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <main className="pt-40 pb-20 px-6 flex flex-col items-center justify-center text-center">
+                        <div className="inline-block glass-card px-4 py-2 rounded-full text-brand-yellow text-xs font-bold mb-8 border-brand-yellow/20 animate-pulse">
+                            ✨ O MELHOR DO WANEL VILLE, SOROCABA ✨
+                        </div>
+
+                        <div className="space-y-6 mb-12">
+                            <div className="bubble-base bubble-yellow text-4xl md:text-7xl">A FESTA MAIS</div><br/>
+                            <div className="bubble-base bubble-purple text-5xl md:text-8xl animate-wiggle">MÁGICA</div><br/>
+                            <div className="bubble-base bubble-yellow text-4xl md:text-7xl">ESTÁ AQUI!</div>
+                        </div>
+
+                        <p className="text-xl md:text-2xl text-purple-100 mb-12 max-w-2xl mx-auto leading-relaxed font-sora">
+                            Transformamos aniversários em memórias inesquecíveis com buffet premium e recreação neon.
+                        </p>
+
+                        <a href="https://wa.me/5515999999999" className="group relative bg-brand-purple text-white text-2xl md:text-3xl font-black py-6 px-12 rounded-full shadow-[0_8px_0_#7e22ce] hover:scale-105 active:translate-y-1 transition-all font-fredoka flex items-center gap-4">
+                           VEM BRINCAR! 🚀
+                        </a>
+                    </main>
+
+                    {/* Diferenciais */}
+                    <section className="py-20 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="glass-card p-10 rounded-[3rem] border-t-4 border-brand-purple text-center hover:-translate-y-2 transition">
+                            <Zap className="mx-auto mb-6 text-brand-purple" size={48} />
+                            <h3 className="text-2xl font-black font-fredoka mb-4 uppercase">Brinquedão Neon</h3>
+                            <p className="opacity-70 font-sora">Diversão garantida em um ambiente mágico e iluminado.</p>
+                        </div>
+                        <div className="glass-card p-10 rounded-[3rem] border-t-4 border-brand-pink text-center hover:-translate-y-2 transition">
+                            <Star className="mx-auto mb-6 text-brand-pink" size={48} />
+                            <h3 className="text-2xl font-black font-fredoka mb-4 uppercase">Equipe Nota 10</h3>
+                            <p className="opacity-70 font-sora">Monitores treinados para garantir alegria e segurança.</p>
+                        </div>
+                        <div className="glass-card p-10 rounded-[3rem] border-t-4 border-brand-yellow text-center hover:-translate-y-2 transition">
+                            <Sparkles className="mx-auto mb-6 text-brand-yellow" size={48} />
+                            <h3 className="text-2xl font-black font-fredoka mb-4 uppercase">Buffet Premium</h3>
+                            <p className="opacity-70 font-sora">Cardápio delicioso que agrada crianças e adultos.</p>
+                        </div>
+                    </section>
+
+                    {/* Footer / CTA Final */}
+                    <footer className="py-20 text-center px-6">
+                        <div className="max-w-4xl mx-auto glass-card p-12 rounded-[4rem] border-white/10">
+                            <MapPin className="mx-auto mb-4 text-brand-turquoise" />
+                            <h4 className="text-xl font-bold font-fredoka mb-2">Wanel Ville - Sorocaba/SP</h4>
+                            <p className="opacity-50 text-sm mb-8 uppercase tracking-[0.3em]">© 2026 Atelie Kids</p>
+                            <div className="flex justify-center gap-4">
+                                <Instagram className="opacity-50 hover:opacity-100 cursor-pointer" />
+                            </div>
+                        </div>
+                    </footer>
+
+                    {/* WhatsApp Flutuante */}
+                    <a href="https://wa.me/5515999999999" className="fixed bottom-8 right-8 z-50 bg-green-500 text-white p-5 rounded-full shadow-2xl animate-bounce border-4 border-white/10">
+                        <MessageCircle size={32} />
+                    </a>
+                </div>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
