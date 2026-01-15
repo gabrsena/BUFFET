@@ -38,22 +38,27 @@ const BackgroundEmoji: React.FC<{
 };
 
 const EmojisLayer: React.FC<Props> = ({ scrollY }) => {
-  // Gerando 180 emojis (10x a quantidade anterior) proceduralmente
+  // Gerando 450 emojis (aumentado para máxima densidade visual) proceduralmente
   const generatedEmojis = useMemo(() => {
-    const emojiPool = ['🍭', '🍿', '🎪', '🎨', '🍦', '🧸', '🎈', '🍰', '🎠', '🍔', '🍕', '🍩', '🌟', '🥳', '🥨', '🧩', '🪁', '🍫', '🎁', '🎂', '🧁', '🎡', '🚀', '🦖', '🧸', '🌈', '✨', '⚡'];
-    const sizes = ['text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl', 'text-7xl'];
+    const emojiPool = [
+      '🍭', '🍿', '🎪', '🎨', '🍦', '🧸', '🎈', '🍰', '🎠', '🍔', '🍕', '🍩', '🌟', '🥳', 
+      '🥨', '🧩', '🪁', '🍫', '🎁', '🎂', '🧁', '🎡', '🚀', '🦖', '🧸', '🌈', '✨', '⚡',
+      '🍉', '🍓', '🍒', '🍍', '🌮', '🥞', '🛸', '🧞', '🧚', '🦄', '🐯', '🦊', '🐼', '🦁',
+      '🎸', '🥁', '🎷', '🎭', '🎨', '🎬', '🏆', '🥇', '👑', '💎', '🔮', '🧿'
+    ];
+    const sizes = ['text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl', 'text-7xl'];
     
-    return Array.from({ length: 180 }).map((_, i) => ({
+    return Array.from({ length: 450 }).map((_, i) => ({
       emoji: emojiPool[i % emojiPool.length],
-      // Distribuição horizontal espalhada
-      left: `${(i * 13.7) % 100}%`,
-      // Distribuição vertical ao longo de toda a página (estimada em 8000px de altura total)
-      top: (i * 45) + (Math.random() * 100), 
+      // Distribuição horizontal espalhada com um pouco mais de variação aleatória
+      left: `${(i * 17.3 + Math.random() * 5) % 100}%`,
+      // Distribuição vertical ao longo de toda a página (densidade aumentada)
+      top: (i * 25) + (Math.random() * 200), 
       size: sizes[i % sizes.length],
-      // Velocidades variadas para efeito de profundidade
-      speed: 0.1 + (Math.random() * 0.4),
-      delay: `${(i * 0.1).toFixed(1)}s`,
-      rotation: Math.floor(Math.random() * 40) - 20 // Rotação aleatória entre -20 e 20 graus
+      // Velocidades variadas para efeito de profundidade (3D parallax effect)
+      speed: 0.05 + (Math.random() * 0.5),
+      delay: `${(i * 0.05).toFixed(2)}s`,
+      rotation: Math.floor(Math.random() * 360) - 180 // Rotação total permitida para variedade
     }));
   }, []);
 

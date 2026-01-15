@@ -31,6 +31,15 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
     { char: '🎈', left: '88%', top: '5%', speed: 0.9, size: 'text-6xl' },
     { char: '🥤', left: '3%', top: '35%', speed: 0.4, size: 'text-4xl' },
     { char: '🍫', left: '92%', top: '82%', speed: 0.55, size: 'text-5xl' },
+    // Adicionando novos emojis para maior densidade
+    { char: '🪁', left: '48%', top: '15%', speed: 0.7, size: 'text-6xl' },
+    { char: '🥞', left: '18%', top: '12%', speed: 0.4, size: 'text-5xl' },
+    { char: '🧞', left: '78%', top: '40%', speed: 0.9, size: 'text-7xl' },
+    { char: '🧚', left: '8%', top: '68%', speed: 0.6, size: 'text-5xl' },
+    { char: '🍉', left: '32%', top: '85%', speed: 0.5, size: 'text-4xl' },
+    { char: '🌮', left: '62%', top: '92%', speed: 0.8, size: 'text-6xl' },
+    { char: '🛸', left: '22%', top: '3%', speed: 1.2, size: 'text-5xl' },
+    { char: '🦁', left: '55%', top: '72%', speed: 0.3, size: 'text-6xl' },
   ];
 
   const scrollToMagia = () => {
