@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface Props {
@@ -31,7 +30,6 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
     { char: '🎈', left: '88%', top: '5%', speed: 0.9, size: 'text-6xl' },
     { char: '🥤', left: '3%', top: '35%', speed: 0.4, size: 'text-4xl' },
     { char: '🍫', left: '92%', top: '82%', speed: 0.55, size: 'text-5xl' },
-    // Adicionando novos emojis para maior densidade
     { char: '🪁', left: '48%', top: '15%', speed: 0.7, size: 'text-6xl' },
     { char: '🥞', left: '18%', top: '12%', speed: 0.4, size: 'text-5xl' },
     { char: '🧞', left: '78%', top: '40%', speed: 0.9, size: 'text-7xl' },
@@ -40,6 +38,8 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
     { char: '🌮', left: '62%', top: '92%', speed: 0.8, size: 'text-6xl' },
     { char: '🛸', left: '22%', top: '3%', speed: 1.2, size: 'text-5xl' },
     { char: '🦁', left: '55%', top: '72%', speed: 0.3, size: 'text-6xl' },
+    { char: '👾', left: '3%', top: '55%', speed: 0.1, size: 'text-5xl' },
+    { char: '🤖', left: '97%', top: '15%', speed: 0.6, size: 'text-4xl' },
   ];
 
   const scrollToMagia = () => {
@@ -51,7 +51,6 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#0f172a] overflow-hidden px-6 py-20">
-      {/* Botão Reservar Agora (Menor, Topo Direito) */}
       <div className="absolute top-6 right-6 md:top-10 md:right-10 z-50">
         <a 
           href="https://wa.me/5515999999999" 
@@ -62,7 +61,6 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
         </a>
       </div>
 
-      {/* Background Glows */}
       <div 
         className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-purple/30 rounded-full blur-[120px] animate-pulse-glow"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
@@ -72,11 +70,10 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
         style={{animationDelay: '1.5s', transform: `translateY(${scrollY * -0.1}px)` }}
       ></div>
       
-      {/* Massively Dense Emojis Layer */}
       {extraEmojis.map((e, i) => (
         <div 
           key={i}
-          className={`absolute pointer-events-none select-none ${e.size} ${i % 2 === 0 ? 'animate-float' : 'animate-float-delayed'} opacity-60 transition-transform duration-100`}
+          className={`absolute pointer-events-none select-none ${e.size} ${i % 2 === 0 ? 'animate-float' : 'animate-float-delayed'} opacity-70 transition-transform duration-100`}
           style={{ 
             left: e.left, 
             top: e.top, 
@@ -94,15 +91,15 @@ const Hero: React.FC<Props> = ({ scrollY }) => {
         </div>
         
         <div className="mb-10 space-y-4">
-          <div className="bubble-base bubble-yellow text-4xl md:text-6xl lg:text-7xl font-fredoka font-balloon mb-4">
+          <div className="bubble-base bubble-yellow text-4xl md:text-6xl lg:text-7xl font-fredoka mb-4">
             A FESTA MAIS
           </div>
           <br />
-          <div className="bubble-base bubble-purple text-5xl md:text-8xl lg:text-9xl font-fredoka font-balloon animate-wiggle">
+          <div className="bubble-base bubble-purple text-5xl md:text-8xl lg:text-9xl font-fredoka animate-wiggle">
             MÁGICA
           </div>
           <br />
-          <div className="bubble-base bubble-yellow text-4xl md:text-6xl lg:text-7xl font-fredoka font-balloon">
+          <div className="bubble-base bubble-yellow text-4xl md:text-6xl lg:text-7xl font-fredoka">
             ESTÁ AQUI!
           </div>
         </div>

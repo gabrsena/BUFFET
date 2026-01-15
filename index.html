@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atelie Kids | Buffet Infantil Wanel Ville Sorocaba</title>
     <meta name="description" content="O melhor salão de festa infantil no Wanel Ville, Sorocaba. Diversão, segurança e buffet de alta qualidade.">
+    
+    <!-- Favicon Corrigido -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎈</text></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +51,22 @@
     </script>
     
     <style>
-        body { font-family: 'Sora', sans-serif; background-color: #0f172a; color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        /* FORÇA O CONTEÚDO A APARECER IMEDIATAMENTE */
+        #root {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        body { 
+            font-family: 'Sora', sans-serif; 
+            background-color: #0f172a; 
+            color: white !important; 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+            margin: 0;
+            padding: 0;
+        }
         
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-20px) rotate(5deg); } }
         @keyframes bounce-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -62,6 +79,7 @@
         .bubble-base {
             display: inline-block; padding: 0.5rem 2.5rem; border-radius: 9999px; text-transform: uppercase; font-weight: 900;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; line-height: 0.9;
+            font-family: 'Fredoka', sans-serif !important;
         }
         .bubble-purple { background: #9333ea; color: white; box-shadow: 0 10px 0 #7e22ce; transform: rotate(-2deg); }
         .bubble-yellow { background: #facc15; color: #713f12; box-shadow: 0 10px 0 #ca8a04; transform: rotate(1.5deg); }
@@ -75,16 +93,21 @@
         
         .clip-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "lucide-react": "https://esm.sh/lucide-react@^0.475.0",
-        "react-dom/": "https://esm.sh/react-dom@^19.0.0/",
-        "react/": "https://esm.sh/react@^19.0.0/",
-        "react": "https://esm.sh/react@^19.0.0"
-      }
-    }
+    <script>
+        window.process = { env: { NODE_ENV: 'production' } };
     </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
 </head>
 <body class="antialiased">
     <div id="root"></div>

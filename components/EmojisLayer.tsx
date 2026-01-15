@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 
 interface Props {
@@ -15,7 +14,6 @@ const BackgroundEmoji: React.FC<{
   scrollY: number;
   rotation: number;
 }> = ({ emoji, left, top, size, speed, delay, scrollY, rotation }) => {
-  // Parallax: os emojis sobem conforme o scroll desce
   const translateY = scrollY * speed;
 
   return (
@@ -28,7 +26,7 @@ const BackgroundEmoji: React.FC<{
       }}
     >
       <div 
-        className={`animate-float opacity-[0.08] blur-[0.5px] ${size}`}
+        className={`animate-float opacity-[0.12] blur-[0.3px] ${size}`}
         style={{ animationDelay: delay }}
       >
         {emoji}
@@ -38,27 +36,25 @@ const BackgroundEmoji: React.FC<{
 };
 
 const EmojisLayer: React.FC<Props> = ({ scrollY }) => {
-  // Gerando 450 emojis (aumentado para máxima densidade visual) proceduralmente
+  // Gerando 650 emojis para máxima densidade visual
   const generatedEmojis = useMemo(() => {
     const emojiPool = [
       '🍭', '🍿', '🎪', '🎨', '🍦', '🧸', '🎈', '🍰', '🎠', '🍔', '🍕', '🍩', '🌟', '🥳', 
       '🥨', '🧩', '🪁', '🍫', '🎁', '🎂', '🧁', '🎡', '🚀', '🦖', '🧸', '🌈', '✨', '⚡',
       '🍉', '🍓', '🍒', '🍍', '🌮', '🥞', '🛸', '🧞', '🧚', '🦄', '🐯', '🦊', '🐼', '🦁',
-      '🎸', '🥁', '🎷', '🎭', '🎨', '🎬', '🏆', '🥇', '👑', '💎', '🔮', '🧿'
+      '🎸', '🥁', '🎷', '🎭', '🎨', '🎬', '🏆', '🥇', '👑', '💎', '🔮', '🧿', '👻', '👾',
+      '🤖', '🌞', '🌙', '🌏', '🌋', '🌊', '🪁', '🧸', '🪀', '🎮', '🎳', '🎯', '🎈'
     ];
-    const sizes = ['text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl', 'text-7xl'];
+    const sizes = ['text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl'];
     
-    return Array.from({ length: 450 }).map((_, i) => ({
+    return Array.from({ length: 650 }).map((_, i) => ({
       emoji: emojiPool[i % emojiPool.length],
-      // Distribuição horizontal espalhada com um pouco mais de variação aleatória
-      left: `${(i * 17.3 + Math.random() * 5) % 100}%`,
-      // Distribuição vertical ao longo de toda a página (densidade aumentada)
-      top: (i * 25) + (Math.random() * 200), 
+      left: `${(i * 13.7 + Math.random() * 8) % 100}%`,
+      top: (i * 18) + (Math.random() * 150), 
       size: sizes[i % sizes.length],
-      // Velocidades variadas para efeito de profundidade (3D parallax effect)
-      speed: 0.05 + (Math.random() * 0.5),
-      delay: `${(i * 0.05).toFixed(2)}s`,
-      rotation: Math.floor(Math.random() * 360) - 180 // Rotação total permitida para variedade
+      speed: 0.03 + (Math.random() * 0.45),
+      delay: `${(Math.random() * 5).toFixed(2)}s`,
+      rotation: Math.floor(Math.random() * 360) - 180
     }));
   }, []);
 
