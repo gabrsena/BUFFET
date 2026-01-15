@@ -1,0 +1,36 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-white overflow-x-hidden selection:bg-brand-purple selection:text-white;
+  }
+}
+
+@layer components {
+  .bubble-base {
+    @apply inline-block px-8 py-3 rounded-full uppercase font-black font-fredoka transition-all duration-300;
+  }
+  .bubble-purple {
+    @apply bg-brand-purple text-white shadow-[0_8px_0_#7e22ce] -rotate-2 hover:rotate-0 hover:scale-105;
+  }
+  .bubble-yellow {
+    @apply bg-brand-yellow text-brand-dark shadow-[0_8px_0_#ca8a04] rotate-1.5 hover:rotate-0 hover:scale-105;
+  }
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-[3rem];
+  }
+  .neon-text-yellow {
+    text-shadow: 0 0 10px #facc15;
+  }
+  .shimmer-btn {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background-size: 200% 100%;
+  }
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
